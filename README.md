@@ -2,6 +2,10 @@
 
 Makeshift Reddit client written in React in a few hours. Not complete, nor meant to be.
 
+# Screenshot
+
+[Thread View](/screenshot.png?raw=true "Thread View")
+
 # License
 Copyright (c) 2017, Ilija Boshkov
 
