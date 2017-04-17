@@ -5,6 +5,7 @@ Makeshift Reddit client written in React in a few hours. Not complete, nor meant
 # Screenshot
 
 [Thread View](/screenshot.png?raw=true "Thread View")
+[Subreddit View](/subreddit.PNG?raw=true "Subreddit View")
 
 # License
 Copyright (c) 2017, Ilija Boshkov
