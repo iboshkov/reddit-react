@@ -37,7 +37,7 @@ class PostEntry extends Component {
 
 
         return (
-            <div className="item" key={this.state.post.id}>
+            <div className="ui segment item" key={this.state.post.id}>
                 <div className="right floated content">
                     <div className="ui vertical icon  buttons" role="group" aria-label="...">
                         <button type="button" className="ui post-ctrl compact  button"><i className="chevron up icon"></i></button>

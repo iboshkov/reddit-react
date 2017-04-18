@@ -73,8 +73,14 @@ class Thread extends Component {
 
                 <h3 className="ui dividing header">Comments</h3>
                 {this.state.comments.map(comment =>
-                    <Comment key={comment.id} comment={comment} />
+                    <div key={comment.id}>
+                        <Comment comment={comment} />
+                        <hr className="ui divider"></hr>
+
+                    </div>
                 )}
+
+
             </div>
         );
     }

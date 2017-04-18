@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './Subreddit.css';
 import axios from 'axios';
 import Truncate from 'react-truncate';
 import PostEntry from './PostEntry';
@@ -66,8 +66,8 @@ class Subreddit extends Component {
             <div>
                 {(this.state.data &&
                     <div>
-                        <img className="ui middle aligned tiny image" src={this.state.data.header_img} />
-                        <h3>{this.state.data.title}</h3>
+                        <img className="ui middle aligned tiny subreddit image" src={this.state.data.header_img} />
+                        <span className="subreddit title text">{this.state.data.title}</span>
                     </div>
                 )}
             </div>
@@ -84,14 +84,14 @@ class Subreddit extends Component {
         let columnCount = this.state.data ? 'twelve' : 'sixteen';
         return (
             <div>
-                <div className={`ui padded segment stackable grid ` + (this.state.loading ? 'loading' : '')} >
+                <div className={`ui padded stackable grid ` + (this.state.loading ? 'loading' : '')} >
                     <div className="row">
                         <About></About>
                     </div>
 
-                    <div className="row">
+                    <div className="ui segment row">
                         <div className={`${columnCount} wide column`}>
-                            <div className="ui middle aligned divided list">
+                            <div className="ui middle aligned list">
                                 {this.state.posts.map(post =>
                                     <PostEntry key={post.id} post={post}></PostEntry>
                                 )}
