@@ -6,6 +6,9 @@
   margin-right: 20px;
 }
 
+.ui.loading.segment {
+  min-height: 150px;
+}
 
 span.logo.text {
   font-size: 1.5em;

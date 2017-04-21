@@ -31,7 +31,7 @@ class Subreddit extends Component {
 
     updateData(props) {
         console.log(`Updating subreddit with name ${props.name}`)
-        let url = `http://www.reddit.com/r/${props.name}.json`;
+        let url = `http://www.reddit.com/r/${props.name}.json?sort=hot`;
         let about_url = `http://www.reddit.com/r/${props.name}/about.json`;
 
         if (props.name === '') {
@@ -68,6 +68,7 @@ class Subreddit extends Component {
                     <div>
                         <img className="ui middle aligned tiny subreddit image" src={this.state.data.header_img} />
                         <span className="subreddit title text">{this.state.data.title}</span>
+                        <a href={this.state.data.url} className="subreddit title text">&nbsp;{this.state.data.url}</a>
                     </div>
                 )}
             </div>
@@ -84,27 +85,31 @@ class Subreddit extends Component {
         let columnCount = this.state.data ? 'twelve' : 'sixteen';
         return (
             <div>
-                <div className={`ui padded stackable grid ` + (this.state.loading ? 'loading' : '')} >
-                    <div className="row">
-                        <About></About>
-                    </div>
+                <div className={`ui padded stackable grid ` + (this.state.loading ? 'loading segment' : '')} >
 
-                    <div className="ui segment row">
-                        <div className={`${columnCount} wide column`}>
-                            <div className="ui middle aligned list">
-                                {this.state.posts.map(post =>
-                                    <PostEntry key={post.id} post={post}></PostEntry>
-                                )}
-                            </div>
+                    {!this.state.loading && (<div>
+                        <div className="row">
+                            <About></About>
                         </div>
 
-                        {(this.state.data &&
-                            <div className="four wide column">
-                                <Sidebar></Sidebar>
+                        <div className="ui segment row">
+                            <div className={`${columnCount} wide column`}>
+                                <div className="ui middle aligned list">
+                                    {this.state.posts.map(post =>
+                                        <PostEntry key={post.id} post={post}></PostEntry>
+                                    )}
+                                </div>
                             </div>
-                        )}
 
-                    </div>
+                            {(this.state.data &&
+                                <div className="four wide column">
+                                    <Sidebar></Sidebar>
+                                </div>
+                            )}
+
+                        </div>
+                    </div>)}
+
                 </div>
 
             </div>

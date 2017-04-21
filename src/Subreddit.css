@@ -1,0 +1,10 @@
+.subreddit.image {
+  margin-right: 20px;
+}
+
+.subreddit.title.text {
+  font-size: 1.2em;
+  position: relative;
+  font-weight: bold;
+  top: 0.5em;
+}

@@ -33,7 +33,7 @@ class Thread extends Component {
         let permalink = '';
         permalink = props.permalink;
 
-        let url = `http://www.reddit.com/${permalink}.json`;
+        let url = `http://www.reddit.com/${permalink}.json?sort=top`;
 
 
         this.setState({ comments: [], data: null, loading: true });
@@ -67,21 +67,24 @@ class Thread extends Component {
         )
 
         return (
-            <div className="ui comments" >
-                {thread && thread.is_self && (<SelfThread />)}
-                {thread && !thread.is_self && (<LinkThread />)}
+            <div className={"ui segment " + (this.state.loading ? 'loading' : '')}>
+                {!this.state.loading && (
+                    <div className="ui comments" >
+                        {thread && thread.is_self && (<SelfThread />)}
+                        {thread && !thread.is_self && (<LinkThread />)}
 
-                <h3 className="ui dividing header">Comments</h3>
-                {this.state.comments.map(comment =>
-                    <div key={comment.id}>
-                        <Comment comment={comment} />
-                        <hr className="ui divider"></hr>
+                        <h3 className="ui dividing header">Comments</h3>
+                        {this.state.comments.map(comment =>
+                            <div key={comment.id}>
+                                <Comment comment={comment} />
+                                <hr className="ui divider"></hr>
 
+                            </div>
+                        )}
                     </div>
                 )}
-
-
             </div>
+
         );
     }
 }
